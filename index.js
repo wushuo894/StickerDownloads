@@ -6,10 +6,13 @@ import fetch from 'node-fetch'
 
 (async () => {
     let botToken = config.botToken
-    if (!config.botToken) {
-        botToken = readlineSync.question('stickersUrl: ')
+    if (!botToken) {
+        botToken = readlineSync.question('botToken: ')
     }
-    let stickersUrl = readlineSync.question('botToken: ')
+    let stickersUrl = readlineSync.question('stickersUrl: ')
+    if (!stickersUrl) {
+        return
+    }
 
     let regex = /\/([^\/]+)$/;
     let match = stickersUrl.match(regex)
