@@ -6,6 +6,9 @@
   "author": "",
   "license": "ISC",
   "description": "",
+  "scripts": {
+    "run": "node index.js"
+  },
   "dependencies": {
     "node-fetch": "^3.3.2",
     "readline-sync": "^1.4.10"
