@@ -1,14 +1,25 @@
 let fs = await import('fs')
 let path = await import('path')
-let config = await import('./config.js')
+
 let readlineSync = await import('readline-sync')
 import fetch from 'node-fetch'
 
 (async () => {
-    let botToken = config.botToken
+    let botToken = ''
+
+    if (fs.existsSync('config.js')) {
+        let config = await import('./config.js')
+        botToken = config.botToken
+    }
+
     if (!botToken) {
         botToken = readlineSync.question('botToken: ')
     }
+
+    if (!botToken) {
+        return
+    }
+
     let stickersUrl = readlineSync.question('stickersUrl: ')
     if (!stickersUrl) {
         return
