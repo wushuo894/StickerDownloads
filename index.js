@@ -9,7 +9,7 @@ import fetch from 'node-fetch'
 
     if (fs.existsSync('config.js')) {
         let config = await import('./config.js')
-        botToken = config.botToken
+        botToken = config.default.botToken
     }
 
     if (!botToken) {
